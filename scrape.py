@@ -9,6 +9,14 @@ import time
 t1=time.time()
 import hashlib
 import base64
+def getHTMLText(url):
+    try:
+        r=requests.get(url,timeout=60)
+        r.raise_for_status()
+        r.encoding='utf-8'
+        return r.json()
+    except:
+        pass
 a="ef34#teuq0btua#(-57w1q5o5--j@98xygimlyfxs*-!i-0-mb"
 for b in range(1,101):
     c=f"{a}{b}" #解码后的base64编码和后者1-100的拼接
